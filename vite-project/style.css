@@ -5,9 +5,19 @@ html, body * {
   font-size: 1rem;
 }
 h1{background-color: rgb(255, 203, 255);
-text-align: center;}
+text-align: center;
+border-radius: 5px 5px 0 0;}
 h2{background-color: rgb(255, 178, 255);
 text-align: center;}
-{
 
+.Sortingbuttons {
+  text-align: center;
+  background-color: rgb(255, 174, 248);
 }
+.Sortingbuttons #waifu{border-radius: 20px;
+width: 100px;}
+
+.Sortingbuttons #sources{border-radius: 20px;
+  width: 100px;
+background-color: pink;
+border-color:;}
