@@ -25,17 +25,16 @@ h2 {
   text-align: center;
   background-color: rgb(255, 174, 248);
 }
-.Sortingbuttons #waifu {
-  border-radius: 20px;
-  width: 100px;
-}
 
-.Sortingbuttons #sources, #waifu {
+.Sortingbuttons #sources,
+#waifu {
   border-radius: 20px;
   width: 100px;
+  height: 27px;
   background-color: rgb(255, 190, 200);
   border-color: rgb(255, 255, 255);
 }
+
 .cards {
   display: flex;
   flex-direction: row;
@@ -44,7 +43,7 @@ h2 {
 }
 :root {
   --background-color: rgb(100, 100, 100);
-  --text-color: rgb(0,0,0);
+  --text-color: rgb(0, 0, 0);
 }
 body {
   background-color: var(--background-color);
