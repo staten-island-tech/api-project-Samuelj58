@@ -1,13 +1,36 @@
-<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<h1>Waifu Api</h1>
+<h2>Tags</h2>
+<!-- Buttons and titles -->
+<div class="Sortingbuttons">
+<input type="button" name=tag id=waifu value="Waifu">
+<input type="button" name=tag id=waifu value="Maid">
+<input type="button" name=tag id=waifu value="Oppai">
+<input type="button" name=tag id=waifu value="Selfies">
+<input type="button" name=tag id=waifu value="Uniform">
+<input type="button" name=tag id=waifu value="M/F toggle">
+</div>
+<h2>Sources</h2>
+<div class="Sortingbuttons">
+<input type="button" name=tag id=sources value="Pixiv">
+<input type="button" name=tag id=sources value="Twitter">
+<input type="button" name=tag id=sources value="Reddit">
+</div>
+<h2>Search by Name</h2>
+<div class="extrab">
+<input type="text" placeholder="Search Artist/Character name" name=extra id=textbox value=""><br>
+<input type="button" name=extra id=button value="Submit">  
+</div>
+
+<!-- cards created here -->
+<div id="cards"></div>
+<script scr="main.js"></script>
+</body>
 </html>
