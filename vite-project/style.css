@@ -26,8 +26,8 @@ h2 {
   background-color: rgb(255, 203, 255);
 }
 
-.Sortingbuttons #sources,
-#waifu {
+.Sortingbuttons .sources,
+.waifu {
   width: 100px;
   height: 27px;
   color :white;
@@ -64,4 +64,10 @@ background-color: rgb(255, 203, 255);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+img {
+  max-width: 300px;
+  max-height: 400px;
+  min-width: 200px;
+  height: auto; 
 }

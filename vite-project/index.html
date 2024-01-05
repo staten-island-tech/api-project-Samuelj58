@@ -6,31 +6,20 @@
   <title>Document</title>
 </head>
 <body>
-<h1>Waifu Api</h1>
-<h2>Tags</h2>
-<!-- Buttons and titles -->
-<div class="Sortingbuttons">
-<input type="button" name=tag id=waifu value="Waifu">
-<input type="button" name=tag id=waifu value="Maid">
-<input type="button" name=tag id=waifu value="Oppai">
-<input type="button" name=tag id=waifu value="Selfies">
-<input type="button" name=tag id=waifu value="Uniform">
-<input type="button" name=tag id=waifu value="M/F toggle">
-</div>
-<h2>Sources</h2>
-<div class="Sortingbuttons">
-<input type="button" name=tag id=sources value="Pixiv">
-<input type="button" name=tag id=sources value="Twitter">
-<input type="button" name=tag id=sources value="Reddit">
-</div>
-<h2>Search by Name</h2>
-<div class="extrab">
-<input type="text" placeholder="Search Artist/Character name" name=extra id=textbox value=""><br>
-<input type="button" name=extra id=button value="Submit">  
-</div>
+  <h1>Waifu Api</h1>
+  <h2>Tags</h2>
+  <!-- Buttons and titles -->
+  <div class="Sortingbuttons">
+    <input type="button" name=tag class=waifu value="Waifu">
+    <input type="button" name=tag class=waifu value="Maid">
+    <input type="button" name=tag class=waifu value="Oppai">
+    <input type="button" name=tag class=waifu value="Selfies">
+    <input type="button" name=tag class=waifu value="Uniform">
+  </div>
+  <button id="clearButton">Clear Content</button>
+  <!-- Cards created here -->
+  <div id="cards"></div>
+  <script type="module" src="main.js"></script>
 
-<!-- cards created here -->
-<div id="cards"></div>
-<script scr="main.js"></script>
 </body>
 </html>
