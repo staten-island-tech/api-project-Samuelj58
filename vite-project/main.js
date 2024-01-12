@@ -14,31 +14,25 @@ async function fetchWaifuData() {
   }
 }
  */
-const apiUrl = 'https://api.waifu.im/search'; // API URL for fetching waifu images
-const displayedImages = new Set(); // Set to track displayed images
+// API URL
+const apiUrl = 'https://api.waifu.im/search';
 
-// Function to fetch data based on the provided tag
+//prevent duplicates
+const displayedImages = new Set();
+
+// Fetch and display data based on the provided tag
 function fetchData(tag) {
-  const params = new URLSearchParams({ included_tags: tag }); // Construct URL parameters with the included tag
+  // Construct URL parameters with the included tag
+  const params = new URLSearchParams({ included_tags: tag });
 
-  // Fetch image data based on the constructed URL
+  // Fetch image data and handle the result
   fetch(`${apiUrl}?${params}`)
-    .then(response => {
-      // Check response status; throw error if not okay
-      if (!response.ok) {
-        throw new Error('Request failed with status code: ' + response.status);
-      }
-      return response.json(); // Parse response as JSON
-    })
-    .then(data => {
-      // Handle the fetched data and display images
-      console.log(data); // Log the fetched data
-      handleImageData(data);
-    })
+    .then(response => response.ok ? response.json() : Promise.reject('Failed to fetch'))
+    .then(data => handleImageData(data))
     .catch(error => console.error('An error occurred:', error.message));
 }
 
-// Function to handle the fetched image data
+// Handle the fetched image data and display images
 function handleImageData(data) {
   // Get the container for displaying images
   const cardsContainer = document.getElementById('cards');
@@ -56,7 +50,8 @@ function handleImageData(data) {
         const imageHtml = `<img src="${imageUrl}" alt="Waifu Image">`;
         const sourceUrl = imageData.source; // Assuming 'source' contains the image source URL
         cardsContainer.insertAdjacentHTML('beforeend', `<a href="${sourceUrl}" target="_blank">${imageHtml}</a>`);
-        displayedImages.add(imageUrl); // Add displayed image URL to prevent duplicates
+        // Add displayed image URL to prevent duplicates
+        displayedImages.add(imageUrl);
       }
     });
   } else {
@@ -66,22 +61,23 @@ function handleImageData(data) {
 
 // Add event listeners to elements with the class '.waifu'
 document.querySelectorAll('.waifu').forEach(button => {
-  button.addEventListener('click', () => {
-    // Fetch data based on the value of the clicked button
-    fetchData(button.value);
-  });
+  button.addEventListener('click', () => fetchData(button.value));
 });
 
-// Add event listener to the element with the ID 'clearButton'
+// Add an event listener
 document.getElementById('clearButton').addEventListener('click', function() {
   // Get the container where images are displayed
   const cardsContainer = document.getElementById('cards');
 
   // Clear the container and the displayed images Set
-  if (cardsContainer) {
-    cardsContainer.innerHTML = '';
-    displayedImages.clear();
-  } else {
-    console.error('Cards container not found');
-  }
+  cardsContainer ? (cardsContainer.innerHTML = '', displayedImages.clear()) : console.error('Cards container not found');
+});
+
+// Fetch a random waifu image on page load
+window.addEventListener('load', () => {
+  // Fetch a random waifu image using the API
+  fetch(apiUrl)
+    .then(response => response.ok ? response.json() : Promise.reject('Failed to fetch'))
+    .then(data => handleImageData(data))
+    .catch(error => console.error('An error occurred:', error.message));
 });
